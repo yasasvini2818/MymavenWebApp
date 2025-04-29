@@ -19,12 +19,6 @@ pipeline {
             }
         }
 
-        stage('Deploy WAR') {
-            steps {
-                // Replace these values with your actual deployment server
-                sh 'scp target/my-webapp.war user@your-server-ip:/path/to/tomcat/webapps/'
-            }
-        }
     }
 
     post {
