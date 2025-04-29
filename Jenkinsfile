@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'       // Must match name configured in Jenkins
-        jdk 'JDK'           // Must match name configured in Jenkins
+        maven 'Maven'  // This must match the Maven name in Jenkins config
+        jdk 'JDK'      // This must match the JDK name in Jenkins config
     }
 
     stages {
@@ -21,7 +21,7 @@ pipeline {
 
         stage('Deploy WAR') {
             steps {
-                // Replace with your actual server username, IP, and path
+                // Replace these values with your actual deployment server
                 sh 'scp target/my-webapp.war user@your-server-ip:/path/to/tomcat/webapps/'
             }
         }
@@ -29,10 +29,10 @@ pipeline {
 
     post {
         success {
-            echo 'WAR build and deployment completed successfully.'
+            echo 'Build and deployment successful.'
         }
         failure {
-            echo 'Something went wrong during build or deployment.'
+            echo 'Build or deployment failed.'
         }
     }
 }
