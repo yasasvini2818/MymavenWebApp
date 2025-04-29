@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven_3.8.7'
-        jdk 'JDK_17'
+        maven 'Maven'       // Must match name configured in Jenkins
+        jdk 'JDK'           // Must match name configured in Jenkins
     }
 
     stages {
@@ -21,9 +21,18 @@ pipeline {
 
         stage('Deploy WAR') {
             steps {
-                // Replace with your actual remote details
-                sh 'scp target/my-webapp.war user@your-server:/path/to/tomcat/webapps/'
+                // Replace with your actual server username, IP, and path
+                sh 'scp target/my-webapp.war user@your-server-ip:/path/to/tomcat/webapps/'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'WAR build and deployment completed successfully.'
+        }
+        failure {
+            echo 'Something went wrong during build or deployment.'
         }
     }
 }
