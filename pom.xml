@@ -9,8 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>My Web Application</name>
-  <url>http://maven.apache.org</url>
+  <name>My WebApp</name>
 
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
@@ -18,6 +17,7 @@
   </properties>
 
   <dependencies>
+    <!-- Unit testing -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -25,6 +25,7 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- Servlet API -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
